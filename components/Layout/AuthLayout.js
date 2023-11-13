@@ -82,7 +82,7 @@ const AuthLayout = ({ children, title }) => {
         </Toolbar>
       </AppBar>
       <Box component="main" style={{ paddingTop: "64px" }}>
-        <Container maxWidth="md">{children}</Container>
+        <Container maxWidth="xl">{children}</Container>
       </Box>
     </>
   );

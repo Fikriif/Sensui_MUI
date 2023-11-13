@@ -22,7 +22,7 @@ const Dashboard = (props) => {
 
   return (
     <>
-      <Container sx={{ bgcolor: 'common.black'}}>
+      <Container maxWidth="xl" sx={{ bgcolor: 'common.black'}}>
         <AuthLayout title="Dashboard">
           <Box>
             <Typography variant="h2" component="div" sx={{ color: 'common.white' }}>Most Popular</Typography>
