@@ -7,55 +7,27 @@ import ButtonBase from "@mui/material/ButtonBase";
 import SignOutIcon from "@mui/icons-material/Logout";
 import Box from "@mui/material/Box";
 import { SignOut } from "../../services/firebase";
-import SearchIcon from "@mui/icons-material/Search";
-import { styled, alpha } from "@mui/material/styles";
-import InputBase from "@mui/material/InputBase";
-
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.5),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.6),
-  },
-  marginLeft: 0,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(1),
-    width: "auto",
-  },
-}));
-
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      width: "12ch",
-      "&:focus": {
-        width: "20ch",
-      },
-    },
-  },
-}));
+import SearchIcon from '@mui/icons-material/Search';
+import { useRef } from "react";
+import Input from "@mui/material/Input";
+import { Button } from "@mui/material";
+import { useRouter } from "next/router";
+import Link from "next/Link";
 
 const AuthLayout = ({ children, title }) => {
   const defaultTitle = "Sensui";
   const pageTitle = title ? `${title} | ${defaultTitle}` : defaultTitle;
+  const searchRef = useRef();
+  const router = useRouter();
+
+  const handleSearch = (event) => {
+    const encodedQuery = encodeURIComponent(searchRef.current.value);
+    if(!encodedQuery) return
+    if(event.key === "Enter" || event.type === "click"){
+      event.preventDefault()
+      router.push(`/Search/${encodedQuery}`);
+    }
+  }
 
   return (
     <>
@@ -64,16 +36,19 @@ const AuthLayout = ({ children, title }) => {
       </Head>
       <AppBar>
         <Toolbar>
-          <Typography sx={{ flex: 1 }}>Sensui</Typography>
-          <Search sx={{ marginRight: 7}}>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
+          <Link href="/Dashboard"><Typography sx={{ flex: 1 }}><Button sx={{color: 'common.black'}}>Sensui</Button></Typography></Link>
+          <Box sx={{position: 'relative', marginRight: 5}}>
+          <Input
+            sx={{border: 2}}
+            placeholder="Search Anime"
+            inputRef={searchRef}
+            onKeyDown={handleSearch}
             />
-          </Search>
+            <Button sx={{position: 'absolute', top: '5%', left: '70%', color: 'common.black'}} size="small" 
+            onClick={handleSearch}>
+              <SearchIcon />
+            </Button>
+          </Box>
           <ButtonBase onClick={SignOut}>
             <SignOutIcon>
               <Typography sx={{ ml: 1 }}>Sign Out</Typography>

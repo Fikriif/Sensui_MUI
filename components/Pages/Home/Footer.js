@@ -58,7 +58,7 @@ const Footer = () => {
                                 Corporate Information
                             </Typography>
                             <Typography variant="body1" component="a" href="#">
-                                Only on Netflix
+                                Only on Sensui
                             </Typography>
                         </Stack>
                     </Grid>
@@ -98,7 +98,7 @@ const Footer = () => {
                 </Box>
 
                 <Typography variant="caption" >
-                    Netflix Indonesia
+                    Sensui Indonesia
                 </Typography>
             </Container>
         </Box>
