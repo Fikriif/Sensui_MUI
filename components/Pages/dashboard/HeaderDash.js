@@ -1,6 +1,7 @@
 import { Button, Container } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import Link from "next/Link";
+import Link from 'next/link';
+
 
 const HeaderDash = ({title, linkHref, linkTitle}) => {
   return (

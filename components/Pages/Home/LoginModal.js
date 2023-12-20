@@ -14,7 +14,7 @@ import { SignIn, GetSignInErrorMessage } from "../../../services/firebase"
 import { CircularProgress } from "@mui/material"
 import { Snackbar } from "@mui/material"
 import { Alert } from "@mui/material"
-import Link from "next/Link"
+import Link from 'next/link';
 
 const style = {
   position: 'absolute',

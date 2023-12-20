@@ -12,7 +12,7 @@ import { useRef } from "react";
 import Input from "@mui/material/Input";
 import { Button } from "@mui/material";
 import { useRouter } from "next/router";
-import Link from "next/Link";
+import Link from 'next/link';
 
 const AuthLayout = ({ children, title }) => {
   const defaultTitle = "Sensui";
