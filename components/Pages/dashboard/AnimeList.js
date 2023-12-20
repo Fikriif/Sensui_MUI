@@ -17,7 +17,7 @@ const AnimeList = ({ api }) => {
         return (
           <Link href={`/Details/${anime.mal_id}`} key={anime.mal_id}>
             <Card variant="outlined" sx={{
-              width: {xs: 120, sm: 150, md: 250},
+              width: {xs: 150, sm: 160, md: 250},
               marginBottom: {md: 2},
               bgcolor:'common.black',
               color: 'common.white'
@@ -26,11 +26,11 @@ const AnimeList = ({ api }) => {
                 <CardMedia
                   component="img"
                   image={anime.images.webp.image_url}
-                  sx={{width: {xs: 120, sm: 150, md: 250}, height: {xs: 120, sm: 150, md: 250}}}
+                  sx={{width: {xs: 150, sm: 160, md: 250}, height: {xs: 150, sm: 160, md: 250}}}
                   alt=""
                 />
                 <CardContent>
-                  <Typography sx={{fontSize: {xs: 7, sm: 13, md: 23}}}>
+                  <Typography sx={{fontSize: {xs: 12, sm: 16, md: 25}}}>
                     {anime.title}
                   </Typography>
                 </CardContent>

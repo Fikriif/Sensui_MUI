@@ -5,10 +5,10 @@ import Link from "next/Link";
 const HeaderDash = ({title, linkHref, linkTitle}) => {
   return (
     <>
-        <Container maxWidth='xl' sx={{display: 'flex', justifyContent: 'space-between', pt: 2}}>
-          <Typography variant="h4" sx={{ color: 'common.white' }}>{title}</Typography>
+        <Container maxWidth='xl' sx={{display: 'flex', justifyContent: 'space-between', py: 2}}>
+          <Typography sx={{ color: 'common.white', fontSize: {xs: 25, md: 35} }}>{title}</Typography>
             {linkHref && linkTitle ? <Link href={linkHref}>
-              <Button variant="caption" size="small" sx={{ color: 'common.white'}}>{linkTitle}</Button>
+              <Button size="small" sx={{ color: 'common.white', fontSize: {xs: 7, md: 13}}}>{linkTitle}</Button>
             </Link> : null}
         </Container>
     </>
